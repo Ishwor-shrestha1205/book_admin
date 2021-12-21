@@ -5,4 +5,6 @@ class Book < ApplicationRecord
     # Book.find_by(price: 1000)はnilけどBook.find_price(10000)の時はないと全部
     scope :find_price, ->(price) { find_by(price: price)}
     belongs_to :publisher
+    has_many :book_authors
+    has_many :authors, through: :book_authors
 end
